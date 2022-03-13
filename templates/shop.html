@@ -1,0 +1,81 @@
+{% include "header.html" %}
+
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('{{shop.img_url}}')">
+	<div class="overlay"></div>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-md-10 mx-auto">
+				<div class="post-heading">
+					<h1 style="text-align:center;">{{ shop.name }}</h1>
+                    <h2 style="text-align:center;"> {{ shop.location }}</h2>
+                <span class="meta" style="text-align:center;"> {{ shop.location }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+
+              Do they have sockets?
+              {% if shop.has_sockets == True: %}
+                Yes
+              {% else: %}
+                No
+              {% endif %}
+              <br>
+              <br>
+
+              Do they have bathrooms?
+              {% if shop.has_sockets == True: %}
+                Yes
+              {% else: %}
+                No
+              {% endif %}
+              <br>
+              <br>
+
+              Do they have wifi?
+              {% if shop.has_sockets == True: %}
+                Yes
+              {% else: %}
+                No
+              {% endif %}
+              <br>
+              <br>
+
+              Can you talk there?
+              {% if shop.has_sockets == True: %}
+                Yes
+              {% else: %}
+                No
+              {% endif %}
+              <br>
+              <br>
+
+              Number of seats: {{ shop.seats }}
+              <br>
+              <br>
+
+              Coffee price: {{ shop.coffee_price }}
+
+              <hr>
+              <p>
+              <a href="{{ shop.map_url }}">:נווט לבית קפה</a>
+          </p>
+
+           <div class="clearfix">
+            <a class="btn btn-primary float-right" href="{{url_for('edit_shop', shop_id=shop.id)}}">Edit Shop</a>
+        </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <hr>
+{% include "footer.html" %}

@@ -1,0 +1,36 @@
+{% include "header.html" %}
+  <div class="container" style="background-color: black">
+    <h1 style="font-size: 3em; color:black">-</h1>
+  </div>
+  <!-- Main Content -->
+  <div class="container" style="margin-top: 100px">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        {% for cafe in cafes %}
+          <img src="{{ cafe.img_url }}" width="150px" height="120px" style="float: left; margin-right: 15px;">
+          <div class="post-preview">
+            <a href="{{ url_for('show_shop', shop_id=cafe.id) }}">
+              <h2 class="cafe-title">
+                {{cafe.name}}
+              </h2>
+              <h3 class="cafe-location">
+                {{cafe.location}}
+              </h3>
+            <p class="post-meta">Posted by
+              <a href="#">eitan</a>
+              <a href="{{url_for('delete_post', shop_id=cafe.id)}}">✘</a></p>
+          </div>
+          <hr>
+        {% endfor %}
+
+        <!-- New Post -->
+        <div class="clearfix">
+          <a class="btn btn-primary float-right" href="{{url_for('new_post')}}">Add New Shop</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+
+
+{% include "footer.html" %}
